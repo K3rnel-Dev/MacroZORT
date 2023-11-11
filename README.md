@@ -3,9 +3,9 @@
 ![Python](https://img.shields.io/badge/Language-Python-blue?style=for-the-badge&logo=python)
 ![TestOS](https://img.shields.io/badge/OS-KaliLinux-red?style=for-the-badge&logo=linux)
 <img alt="macrozort-logo" align="left" width="300" height="300" src="https://github.com/K3rnel-Dev/MacroZORTM/blob/main/screens/zort.png">
-<h1>Shell-Cat</h1>
+<h1>MacroZORT</h1>
 
-### Shell-Cat About
+### MacroZORT About
 > EN:
 > Bash Tool for creating Macros for products microsoft office
 > RU:
