@@ -1,4 +1,4 @@
-# MacroZORTM
+# MacroZORT
  Bash Tool for creating Macros for products microsoft office
 ![Python](https://img.shields.io/badge/Language-Python-blue?style=for-the-badge&logo=python)
 ![TestOS](https://img.shields.io/badge/OS-KaliLinux-red?style=for-the-badge&logo=linux)
