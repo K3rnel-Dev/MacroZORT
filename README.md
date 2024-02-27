@@ -1,6 +1,8 @@
 # MacroZORT
 <img alt="macrozort-logo" align="left" width="300" height="300" src="https://github.com/K3rnel-Dev/MacroZORTM/blob/main/screens/zort.png">
+
 ![Python](https://img.shields.io/badge/Language-Python-blue?style=for-the-badge&logo=python)
+
 ### MacroZORT About
 > Bash Tool for creating Macros for products microsoft office
 </br>
