@@ -1,15 +1,8 @@
 # MacroZORT
- Bash Tool for creating Macros for products microsoft office
-![Python](https://img.shields.io/badge/Language-Python-blue?style=for-the-badge&logo=python)
-![TestOS](https://img.shields.io/badge/OS-KaliLinux-red?style=for-the-badge&logo=linux)
 <img alt="macrozort-logo" align="left" width="300" height="300" src="https://github.com/K3rnel-Dev/MacroZORTM/blob/main/screens/zort.png">
-<h1>MacroZORT</h1>
-
+![Python](https://img.shields.io/badge/Language-Python-blue?style=for-the-badge&logo=python)
 ### MacroZORT About
-> EN:
 > Bash Tool for creating Macros for products microsoft office
-> RU:
-> Утилита для создания Макросов для продуктов от Майкрософт Офис
 </br>
 
 <img alt="macrozort" align="center" src="https://github.com/K3rnel-Dev/MacroZORTM/blob/main/screens/1.png">
